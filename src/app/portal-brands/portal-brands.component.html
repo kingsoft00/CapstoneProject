@@ -1,0 +1,15 @@
+
+<h2 style="text-align: center;">All Brands</h2>
+        <table border="2" style="margin-left: auto; margin-right: auto; width:400px">
+            <tr style="text-align: center; background-color: green;">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let pp of brands; index as i" style="text-align: center;background-color: black; color: honeydew;">
+                <td>{{i}}</td>
+                <td>{{pp.brand}}</td>
+                <td><input type="button" value="Delete" (click)="deleteBrand(pp.brand)"></td>
+            </tr>
+        </table>
+        <h3 style="text-align: center;"><input class="btn-danger" type="button" (click)="gotoAddBrand()" value="Add New Brand"/></h3>

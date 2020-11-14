@@ -1,0 +1,21 @@
+<h2 style="text-align: center;">All Products</h2>
+<h3 style="text-align: center;"><input class="btn-danger" type="button" (click)="gotoAddProduct()" value="Add New Product"/></h3>
+    <table border="1" style="margin: auto;">
+            <tr style="text-align: center;">
+                <th>No.</th>
+                <th>Description</th>
+                <th>Size</th>
+                <th>Photo</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            <tr style="text-align: center;" *ngFor="let pp of products; let i=index" style="text-align: left;">
+                <td>{{i+1}}</td>
+                <td>{{pp.name}}</td>
+                <td>{{pp.size}}</td>
+                <td><img src={{pp.image}} alt="Image" width="100"></td>
+                <td>${{pp.price}}</td>
+                <td><input type="button" value="Delete" (click)="deleteProduct(pp._id)"><br/>
+                    <input type="button" value="Update" (click)="gotoUpdateProduct(pp._id,pp.name,pp.size,pp.price)"/></td>
+            </tr>
+    </table>

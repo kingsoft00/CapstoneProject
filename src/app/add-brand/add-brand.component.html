@@ -1,0 +1,8 @@
+<div>
+    <form [formGroup]="brandRef" (ngSubmit)="storeBrand()">
+        <label>Product Name</label>
+        <input type="text" formControlName="brand"/><br/>
+        <input type="submit" value="Store Brand"/>
+    </form>
+    {{result}}
+</div>

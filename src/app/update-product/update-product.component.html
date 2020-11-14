@@ -1,0 +1,15 @@
+<div>
+    <h2>Update the product details</h2>
+    <form [formGroup]="productRef" (ngSubmit)="updateProductDetails()">
+        <label>Product ID</label>
+        <input type="text" [(ngModel)]="in" formControlName="_id" ngModel/><br/>
+        <label>Product Name</label>
+        <input type="text" [(ngModel)]="nameU" formControlName="name" ngModel/><br/>
+        <label>Product Size</label>
+        <input type="text" [(ngModel)]="sizeU" formControlName="size" ngModel/><br/>
+        <label>Product Price</label>
+        <input type="text" [(ngModel)]="priceU" formControlName="price" ngModel/><br/>
+        <input type="submit" value="Store Product"/>
+    </form>
+    {{result}}
+</div>
