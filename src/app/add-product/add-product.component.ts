@@ -18,8 +18,8 @@ export class AddProductComponent implements OnInit {
     color:new FormControl(),
     image:new FormControl(),
     gender:new FormControl(),
-    price:new FormControl(),
-    brand:new FormControl()
+    brand:new FormControl(),
+    price:new FormControl()
   })
   result:string;
   brands:Brand[];
@@ -30,7 +30,7 @@ export class AddProductComponent implements OnInit {
   }
 
   storeProduct():void{
-    this.productService.storeBrandDetails(this.productRef.value)
+    this.productService.storeProductDetails(this.productRef.value)
     .subscribe(data=>this.result=data.msg);
     this.router.navigate(['portalProducts']);
   }
