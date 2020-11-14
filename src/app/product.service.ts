@@ -16,7 +16,10 @@ export class ProductService {
   getAllProductDetails():Observable<Product[]>{
     return this.httpClient.get<Product[]>("http://localhost:5000/product/productFromDb");
   }
-
+  // /productInfoByGender/:gender
+  getAllProductByGender(gender):Observable<Product[]>{
+    return this.httpClient.get<Product[]>("http://localhost:5000/product/productInfoByGender/"+gender);
+  }
   storeProductDetails(prodRef):Observable<any>{
     return this.httpClient.post("http://localhost:5000/product/storeProduct",prodRef);
   }
