@@ -1,5 +1,6 @@
 <h2 style="text-align: center;">All Products</h2>
 <h3 style="text-align: center;"><input class="btn-danger" type="button" (click)="gotoAddProduct()" value="Add New Product"/></h3>
+    <div style="text-align: center;">
     <table border="1" style="margin: auto;">
             <tr style="text-align: center;">
                 <th>No.</th>
@@ -18,5 +19,6 @@
                 <td><input type="button" value="Delete" (click)="deleteProduct(pp._id)"><br/>
                     <input type="button" value="Update" (click)="gotoUpdateProduct(pp._id,pp.name,pp.size,pp.price)"/></td>
             </tr>
-            <input type="button" style="margin: center;" value="Go Back" (click)="cancel()"/>
     </table>
+                <input type="button" value="Go Back" (click)="cancel()"/>
+    </div>

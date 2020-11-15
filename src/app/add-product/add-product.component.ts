@@ -30,6 +30,7 @@ export class AddProductComponent implements OnInit {
   }
 
   storeProduct():void{
+    console.log(this.productRef.value.brand);
     this.productService.storeProductDetails(this.productRef.value)
     .subscribe(data=>this.result=data.msg);
     this.router.navigate(['portalHome']);

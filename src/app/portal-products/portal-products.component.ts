@@ -15,15 +15,13 @@ export class PortalProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getAllProductDetails().subscribe(data=>this.products=data);
   }
-  ngOnChanges():void {
-    this.productService.getAllProductDetails().subscribe(data=>this.products=data);
-  }
+
   gotoAddProduct():void{
     this.router.navigate(['addProduct']);
   }
   deleteProduct(id):void {
     this.productService.deleteProductById(id).subscribe(data=>this.products=data.msg);
-    // this.router.navigate(['portalHome']);
+    this.router.navigate(['portalHome']);
   }
   gotoUpdateProduct(id:number,name:string,size:string,price:number):void{
     this.productService.trackingIdUpdate = id;
