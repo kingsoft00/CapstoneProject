@@ -18,8 +18,8 @@ export class AddProductComponent implements OnInit {
     color:new FormControl(),
     image:new FormControl(),
     gender:new FormControl(),
-    brand:new FormControl(),
-    price:new FormControl()
+    price:new FormControl(),
+    brand:new FormControl()
   })
   result:string;
   brands:Brand[];
