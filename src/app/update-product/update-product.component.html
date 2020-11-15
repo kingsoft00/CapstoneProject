@@ -9,6 +9,7 @@
         <input type="text" [(ngModel)]="sizeU" formControlName="size" ngModel/><br/>
         <label>Product Price</label>
         <input type="text" [(ngModel)]="priceU" formControlName="price" ngModel/><br/>
+        <input type="button" value="Cancel" (click)="cancel()"/>
         <input type="submit" value="Store Product"/>
     </form>
     {{result}}

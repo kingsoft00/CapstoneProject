@@ -15,11 +15,15 @@ export class PortalBrandsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getAllBrandDetails().subscribe(data=>this.brands=data);
   }
+
   gotoAddBrand():void{
     this.router.navigate(['addBrand'])
   }
   deleteBrand(brand:string):void {
     this.productService.deleteBrandByBrand(brand).subscribe(data=>this.result=data.msg);
+    this.router.navigate(['portalHome']);
+  }
+  cancel():void{
     this.router.navigate(['portalHome']);
   }
 }

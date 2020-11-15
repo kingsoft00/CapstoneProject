@@ -16,8 +16,10 @@
         <input type="text" formControlName="price"/><br/>
         <label>Product Brand</label><br/>
             <select formControlName="brand">
+                <option>Select Brand:</option>
                 <option *ngFor="let b of brands" value="b.brand">{{b.brand}}</option>
             </select><br/><hr/>
+        <input type="button" value="Cancel" (click)="cancel()"/> |
         <input type="submit" value="Store Product"/>
     </form>
     {{result}}

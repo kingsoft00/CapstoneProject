@@ -32,6 +32,9 @@ export class AddProductComponent implements OnInit {
   storeProduct():void{
     this.productService.storeProductDetails(this.productRef.value)
     .subscribe(data=>this.result=data.msg);
+    this.router.navigate(['portalHome']);
+  }
+  cancel():void{
     this.router.navigate(['portalProducts']);
   }
 

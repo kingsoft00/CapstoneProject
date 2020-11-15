@@ -29,5 +29,7 @@ export class UpdateProductComponent implements OnInit {
     .subscribe(data=>this.result=data.msg);
     this.router.navigate(['portalProducts']);
   }
-
+  cancel():void{
+    this.router.navigate(['portalProducts']);
+  }
 }
