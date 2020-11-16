@@ -19,9 +19,8 @@ export class CartComponent implements OnInit {
   constructor(public productService:ProductService, public activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.productService.getAllProductDetails().subscribe(data=>this.products=data);
     this.activatedRoute.params.subscribe(params => {
-			var id = params['cartId']; 
+      var id = params['cartId'];
 			if (id) {
 				var item: Item = {
 					product: this.find(id),
@@ -91,13 +90,18 @@ checkOut() {
   this.cartInfo= cart;
   console.log(cart);
 }
-find(id): Product { 
-  return this.products[this.getSelectedIndex(id)];
+find(id:string): Product { 
+  var num = parseInt(id);
+  this.productService.getAllProductDetails().subscribe(data=>this.products=data);
+  return this.products[this.getSelectedIndex(num)];
 }
 
-getSelectedIndex(id) {
-  for (var i = 0; i < this.products.length; i++) {
+getSelectedIndex(id:number) {
+  for (let i = 0; i < this.products.length; i++) {
+    console.log(this.products[i]._id)
       if (this.products[i]._id == id) {
+        console.log(i)
+        console.log(typeof i)
           return i;
       }
   }
