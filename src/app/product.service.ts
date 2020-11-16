@@ -16,13 +16,13 @@ export class ProductService {
   trackingUsername:string;
   trackingEmail:string;
 
-  private products:Product[]
+  private products:Product[];
   
   constructor(public httpClient:HttpClient) { 
     this.getAllProductDetails().subscribe(data=>this.products=data);
-  } //DI for HttpClient
+  }
 
-  find(id:string): Product { 
+  find(id): Product { 
     var num = parseInt(id);
     return this.products[this.getSelectedIndex(num)];
   }
