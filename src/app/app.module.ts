@@ -18,6 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { AuthModule } from './auth/auth.module';
+import { PortalUsersComponent } from './portal-users/portal-users.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { AuthModule } from './auth/auth.module';
     PortalProductsComponent,
     AddBrandComponent,
     AddProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    PortalUsersComponent,
+    AddUserComponent,
+    UpdateUserComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

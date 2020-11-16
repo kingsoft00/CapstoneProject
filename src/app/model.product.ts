@@ -4,3 +4,9 @@ export class Product {
 export class Brand {
     constructor(public _id:any, public brand:string){}
 }
+export class User {
+    constructor(public _id:any, public username:string, public email:string, public password:string){}
+}
+export class Item {
+    constructor(public product:Product,public quantity:number){}
+}

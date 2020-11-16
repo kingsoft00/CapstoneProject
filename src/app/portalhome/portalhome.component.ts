@@ -18,4 +18,7 @@ export class PortalhomeComponent implements OnInit {
   showProducts():void{
     this.router.navigate(['/portalProducts']);
   }
+  showUsers():void{
+    this.router.navigate(['/portalUsers']);
+  }
 }

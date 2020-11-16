@@ -1,0 +1,22 @@
+<h2 style="text-align: center;">All Users</h2>
+<h3 style="text-align: center;"><input class="btn-danger" type="button" (click)="gotoAddUser()" value="Add New User"/></h3>
+    <div style="text-align: center;">
+    <table border="1" style="margin: auto;">
+            <tr style="text-align: center;">
+                <th>No.</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+            <tr style="text-align: center;" *ngFor="let u of users; let i=index" style="text-align: left;">
+                <td>{{i+1}}</td>
+                <td>{{u.username}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.password}}</td>
+                <td><input type="button" value="Delete" (click)="deleteUser(u.email)"><br/>
+                    <input type="button" value="Update" (click)="gotoUpdateUser(u._id,u.username,u.email)"/></td>
+            </tr>
+    </table>
+                <input type="button" value="Go Back" (click)="cancel()"/>
+    </div>

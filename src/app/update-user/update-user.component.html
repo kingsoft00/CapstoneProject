@@ -1,0 +1,14 @@
+<div>
+    <h2>Update the User details</h2>
+    <form [formGroup]="userRef" (ngSubmit)="updateUserDetails()">
+        <label>User ID (Id cannot be changed, if you changed Id, this user would not be update any infor):</label><br/>
+        <input type="text" [(ngModel)]="idU" formControlName="_id" ngModel/><br/>
+        <label>Username:</label><br/>
+        <input type="text" [(ngModel)]="nameU" formControlName="username" ngModel/><br/>
+        <label>Email:</label><br/>
+        <input type="text" [(ngModel)]="emailU" formControlName="email" ngModel/><br/>
+        <input type="button" value="Cancel" (click)="cancel()"/>
+        <input type="submit" value="Store User"/>
+    </form>
+    {{result}}
+</div>

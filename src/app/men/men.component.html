@@ -1,1 +1,30 @@
-<p>men works!</p>
+
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Click Here to Choose Display Brand
+    </button>
+    <div class="dropdown-menu" style="background-color: rgb(226, 162, 43);" aria-labelledby="dropdownMenu2">
+        <button (click)="chooseAll()" class="dropdown-item" type="button">All Men Products</button>
+      <button *ngFor="let b of brands" (click)="chooseBrand(b._id)" class="dropdown-item" type="button">{{b.brand}}</button>
+    </div>
+</div>
+<div style="text-align: center;">
+    <table border="1" style="margin: auto; background-color: white;">
+            <tr style="text-align: center;">
+                <th>No.</th>
+                <th>Description</th>
+                <th>Size</th>
+                <th>Photo</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            <tr style="text-align: center;" *ngFor="let pp of products; let i=index" style="text-align: left;">
+                <td>{{i+1}}</td>
+                <td>{{pp.name}}</td>
+                <td>{{pp.size}}</td>
+                <td><img src={{pp.image}} alt="Image" width="100"></td>
+                <td>${{pp.price}}</td>
+                <td><input type="button" class="btn-danger" value="Buy Now" (click)="gotoCart(pp._id)"><br/></td>
+            </tr>
+    </table>
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Brand, Item, Product } from '../model.product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-men',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenComponent implements OnInit {
 
-  constructor() { }
+  brands:Brand[];
+  products:Product[];
+  cart:[];
+  item:Item;
+  constructor(public productService:ProductService, private router:Router) { }
 
   ngOnInit(): void {
+    this.productService.getAllBrandDetails().subscribe(data=>this.brands=data);
+    this.productService.getAllProductByGender('Men').subscribe(data=>this.products=data)
   }
 
+  chooseBrand(brand):void {
+    this.productService.getAllProductByBrand(brand,'Men').subscribe(data=>this.products=data)
+  }
+  chooseAll():void{
+    this.ngOnInit();
+  }
+  gotoCart(id:number):void{
+    this.router.navigate(['cart', { cartId:id }]);
+  }
 }

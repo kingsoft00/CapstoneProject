@@ -1,23 +1,15 @@
-<div>
+<div style="color: rgba(12, 16, 223, 0.774)">
     <form [formGroup]="productRef" (ngSubmit)="storeProduct()">
-        <label>Product Id</label><br/>
-        <input type="text" formControlName="_id"/><br/>
-        <label>Product Name</label><br/>
-        <input type="text" formControlName="name"/><br/>
-        <label>Product Size</label><br/>
-        <input type="text" formControlName="size"/><br/>
-        <label>Product Color</label><br/>
-        <input type="text" formControlName="color"/><br/>
-        <label>Product Image</label><br/>
-        <input type="text" formControlName="image"/><br/>
-        <label>Product Gender</label><br/>
-        <input type="text" formControlName="gender"/><br/>
-        <label>Product Price</label><br/>
-        <input type="text" formControlName="price"/><br/>
-        <label>Product Brand</label><br/>
+        <input type="text" formControlName="_id" placeholder="Enter Product ID"/><br/>
+        <input type="text" formControlName="name" placeholder="Enter Product Name"/><br/>
+        <input type="text" formControlName="size" placeholder="Enter Product Size"/><br/>
+        <input type="text" formControlName="color" placeholder="Enter Product Color"/><br/>
+        <input type="text" formControlName="image" placeholder="Paste Product Image URL here"/><br/>
+        <input type="text" formControlName="gender" placeholder="For Men or Women"/><br/>
+        <input type="text" formControlName="price" placeholder="Enter Product Price"/><br/>
         <select formControlName="brand">
             <option *ngFor="let b of brands" [ngValue]="b">{{b.brand}}</option>
-        </select><br/><hr/>
+        </select><hr/>
         <input type="submit" value="Store Product"/>
     </form>
     <input type="button" value="Cancel" (click)="cancel()"/>
