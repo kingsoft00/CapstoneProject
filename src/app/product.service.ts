@@ -15,24 +15,10 @@ export class ProductService {
   trackingUserId:any;
   trackingUsername:string;
   trackingEmail:string;
-
-  product1: Product[];
   
-  cartId:number;
   constructor(public httpClient:HttpClient) { } //DI for HttpClient
 
-  find(id): Product { 
-    return this.product1[this.getSelectedIndex(id)];
-  }
-
-  getSelectedIndex(id) {
-    for (var i = 0; i < this.product1.length; i++) {
-        if (this.product1[i]._id == id) {
-            return i;
-        }
-    }
-    return -1;
-}
+  
   getAllUsers():Observable<User[]>{
     return this.httpClient.get<User[]>("http://localhost:5000/api/users/allUser");
   }

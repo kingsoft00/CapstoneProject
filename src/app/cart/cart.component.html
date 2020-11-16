@@ -4,26 +4,26 @@
         <th>Option</th>
         <th>Id</th>
         <th>Name</th>
-        <th>Photo</th>
+        <th>Image</th>
         <th>Price</th>
         <th>Quantity</th>
         <th>Sub Total</th>
     </tr>
     <tr *ngFor="let item of items">
-        <td align="center">
-            <a (click)="remove(item.product.id)">&#10060;</a>
+        <td>
+            <a (click)="remove(item.product._id)">Remove</a>
         </td>
-        <td>{{item.product.id}}</td>
+        <td>{{item.product._id}}</td>
         <td>{{item.product.name}}</td>
         <td>
-            <img src="{{item.product.image}}" width="250" height="100">
+            <img src={{item.product.image}} width="250" height="100">
         </td>
         <td>{{item.product.price}}</td>
         <td>{{item.quantity}}</td>
         <td>{{item.product.price * item.quantity}}</td>
     </tr>
     <tr>
-        <td colspan="6" align="right">Total</td>
+        <td colspan="6">Total</td>
         <td>{{total}}</td>
     </tr>
 </table>

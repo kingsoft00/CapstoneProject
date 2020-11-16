@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Brand, Item, Product } from '../model.product';
+import { Brand, Product } from '../model.product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -12,8 +12,6 @@ export class MenComponent implements OnInit {
 
   brands:Brand[];
   products:Product[];
-  cart:[];
-  item:Item;
   constructor(public productService:ProductService, private router:Router) { }
 
   ngOnInit(): void {
@@ -28,6 +26,6 @@ export class MenComponent implements OnInit {
     this.ngOnInit();
   }
   gotoCart(id:number):void{
-    this.router.navigate(['cart', { cartId:id }]);
+    this.router.navigate(['/cart', {cartId:id }]);
   }
 }

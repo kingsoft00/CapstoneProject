@@ -22,6 +22,7 @@ import { PortalUsersComponent } from './portal-users/portal-users.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { CartComponent } from './cart/cart.component';
+import { ProductService } from './product.service';
 
 @NgModule({
   declarations: [

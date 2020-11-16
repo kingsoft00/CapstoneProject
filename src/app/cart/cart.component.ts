@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Item, Product } from '../model.product';
+import { Item } from '../model.item';
+import { Product } from '../model.product';
+
 import { ProductService } from '../product.service';
 
 @Component({
@@ -12,15 +14,17 @@ export class CartComponent implements OnInit {
 
   items: Item[] = [];
   total: number = 0;
+  products:Product[] = [];
   
-  constructor(public productService:ProductService, private activatedRoute:ActivatedRoute) { }
+  constructor(public productService:ProductService, public activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.productService.getAllProductDetails().subscribe(data=>this.products=data);
     this.activatedRoute.params.subscribe(params => {
 			var id = params['cartId']; 
 			if (id) {
 				var item: Item = {
-					product: this.productService.find(id),
+					product: this.find(id),
 					quantity: 1
 				};
 
@@ -69,9 +73,8 @@ loadCart(): void {
   }
 }
 
-remove(id: number): void {
+remove(id): void {
   let cart: any = JSON.parse(localStorage.getItem('cart'));
-  let index: number = -1;
   for (var i = 0; i < cart.length; i++) {
     let item: Item = JSON.parse(cart[i]);
     if (item.product._id == id) {
@@ -87,6 +90,18 @@ checkOut() {
   let cart: any = JSON.parse(localStorage.getItem('cart'));
   this.cartInfo= cart;
   console.log(cart);
+}
+find(id): Product { 
+  return this.products[this.getSelectedIndex(id)];
+}
+
+getSelectedIndex(id) {
+  for (var i = 0; i < this.products.length; i++) {
+      if (this.products[i]._id == id) {
+          return i;
+      }
+  }
+  return -1;
 }
 
 }

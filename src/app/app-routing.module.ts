@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { AddBrandComponent } from './add-brand/add-brand.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AddUserComponent } from './add-user/add-user.component';
@@ -13,6 +14,7 @@ import { PortalhomeComponent } from './portalhome/portalhome.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { WomenComponent } from './women/women.component';
+import { AuthGuard } from './auth/auth.guard';
 
 export const applicationRoutes: Routes = [
   {path:'', redirectTo: 'home', pathMatch: 'full'},
@@ -31,10 +33,11 @@ export const applicationRoutes: Routes = [
   {path: 'updateUser', component: UpdateUserComponent},
   {path: 'cart', component: CartComponent}
 ];
-// @NgModule({
-//   imports: [RouterModule.forRoot(routes)],
-//   exports: [RouterModule],
-//   providers: [AuthGuard]
-// })
+@NgModule({
+  imports: [RouterModule.forRoot(applicationRoutes)],
+  exports: [RouterModule],
+  providers: [AuthGuard]
+})
+export class AppRoutingModule { }
 
 
