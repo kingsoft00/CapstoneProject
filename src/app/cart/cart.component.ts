@@ -53,7 +53,7 @@ export class CartComponent implements OnInit {
 	}
 
 loadCart(): void {
-  this.productService.total = 0.00;
+  this.productService.total = 0;
   this.productService.items = [];
   let cart = JSON.parse(localStorage.getItem('cart'));
   for (var i = 0; i < cart.length; i++) {
@@ -80,7 +80,7 @@ remove(id): void {
   this.loadCart();
 }
 checkOut() {
-  this.productService.total = 0.00;
+  this.productService.total = 0;
   this.productService.items = [];
   let cart: any = JSON.parse(localStorage.getItem('cart'));
   for (var i = 0; i < cart.length; i++) {
