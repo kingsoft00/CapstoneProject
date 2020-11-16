@@ -26,6 +26,6 @@ export class MenComponent implements OnInit {
     this.ngOnInit();
   }
   gotoCart(id:number):void{
-    this.router.navigate(['/cart', {cartId:id }]);
+    this.router.navigate(['cart', {cartId:id }]);
   }
 }
