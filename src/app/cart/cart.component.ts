@@ -57,7 +57,7 @@ loadCart(): void {
   this.productService.items = [];
   let cart = JSON.parse(localStorage.getItem('cart'));
   for (var i = 0; i < cart.length; i++) {
-    let item = JSON.parse(cart[i]);
+    let item: Item = JSON.parse(cart[i]);
     this.productService.items.push({
       product: item.product,
       quantity: item.quantity
@@ -79,11 +79,20 @@ remove(id): void {
   localStorage.setItem("cart", JSON.stringify(cart));
   this.loadCart();
 }
-// cartInfo:any;
 checkOut() {
-  // let cart: any = JSON.parse(localStorage.getItem('cart'));
-  // this.cartInfo= cart;
-  // console.log(cart);
+  this.productService.total = 0.00;
+  this.productService.items = [];
+  let cart: any = JSON.parse(localStorage.getItem('cart'));
+  for (var i = 0; i < cart.length; i++) {
+    let item: Item = JSON.parse(cart[i]);
+    this.productService.items.push({
+      product: item.product,
+      quantity: item.quantity
+    });
+    this.productService.total += item.product.price * item.quantity;
+    Math.round((this.productService.total + Number.EPSILON) * 100) / 100;
+    this.router.navigate(['checkout']);
+  }
 }
 
 }

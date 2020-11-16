@@ -15,6 +15,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { WomenComponent } from './women/women.component';
 import { AuthGuard } from './auth/auth.guard';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 export const applicationRoutes: Routes = [
   {path:'', redirectTo: 'home', pathMatch: 'full'},
@@ -31,7 +32,8 @@ export const applicationRoutes: Routes = [
   {path: 'portalUsers', component: PortalUsersComponent},
   {path: 'addUser', component: AddUserComponent},
   {path: 'updateUser', component: UpdateUserComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'thankyou', component: ThankyouComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(applicationRoutes)],

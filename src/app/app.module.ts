@@ -23,6 +23,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductService } from './product.service';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ProductService } from './product.service';
     PortalUsersComponent,
     AddUserComponent,
     UpdateUserComponent,
-    CartComponent
+    CartComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,8 @@
       <button *ngFor="let b of brands" (click)="chooseBrand(b._id)" class="dropdown-item" type="button">{{b.brand}}</button>
     </div>
 </div>
-<div style="text-align: center;">
-    <table border="1" style="margin: auto; background-color: white;">
+<div>
+    <!-- <table border="1" style="margin: auto; background-color: white;">
             <tr style="text-align: center;">
                 <th>No.</th>
                 <th>Description</th>
@@ -26,5 +26,16 @@
                 <td>${{pp.price}}</td>
                 <td><input type="button" class="btn-danger" value="Buy Now" (click)="gotoCart(pp._id)"><br/></td>
             </tr>
-    </table>
+    </table> -->
+    <ul class="list-unstyled" style="background-color: white;">
+        <li class="media" *ngFor="let pp of products;">
+          <img src={{pp.image}} class="mr-3" alt="Image" width="120">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1"> {{pp.name}}</h5>
+            Size: {{pp.size}}, Price: ${{pp.price}}<br/>
+            <input type="button" class="btn-danger" value="Buy Now" (click)="gotoCart(pp._id)">
+          </div>
+          <hr/>
+        </li>
+    </ul>
 </div>

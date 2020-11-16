@@ -1,11 +1,11 @@
-<div>
+<div style="background-color: turquoise;">
     <form [formGroup]="userRef" (ngSubmit)="storeUser()">
-        <label>Username</label><br/>
-        <input type="text" formControlName="username"/><br/>
-        <label>Email</label><br/>
-        <input type="text" formControlName="email"/><br/>
-        <label>Password</label><br/>
-        <input type="text" formControlName="password"/><br/>
+        <label>Username:</label><br/>
+        <input type="text" formControlName="username" placeholder="Enter username..."/><br/>
+        <label>Email:</label><br/>
+        <input type="text" formControlName="email" placeholder="Enter email..."/><br/>
+        <label>Password:</label><br/>
+        <input type="text" formControlName="password" placeholder="Enter password..."/><br/>
         <input type="submit" value="Store User"/>
     </form>
     {{result}}
