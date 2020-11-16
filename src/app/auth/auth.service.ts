@@ -4,23 +4,25 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as moment from 'moment';
+import { ProductService } from '../product.service';
 
 const jwt = new JwtHelperService();
 
 class DecodedToken {
   exp: number;
   username: string;
+  email: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  showAdmin:boolean = false;
   private uriseg = 'http://localhost:5000/api/users';
   private decodedToken;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public productService:ProductService) {
     this.decodedToken = JSON.parse(localStorage.getItem('auth_meta')) || new DecodedToken();
    }
 
@@ -44,6 +46,9 @@ export class AuthService {
   }
 
   public logout(): void {
+    localStorage.removeItem('cart');
+    let cart: any = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
     localStorage.removeItem('auth_tkn');
     localStorage.removeItem('auth_meta');
 
@@ -57,4 +62,13 @@ export class AuthService {
   public getUsername(): string {
     return this.decodedToken.username;
   }
+  public isAdmin():boolean{
+    if(this.decodedToken.userId == "5fb288bddb69826598a625d2") {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
 }

@@ -1,13 +1,13 @@
 <div>
     <h2>Update the product details</h2>
     <form [formGroup]="productRef" (ngSubmit)="updateProductDetails()">
-        <label>Product ID</label>
+        <label>Product ID</label><br/>
         <input type="text" [(ngModel)]="in" formControlName="_id" ngModel/><br/>
-        <label>Product Name</label>
+        <label>Product Name</label><br/>
         <input type="text" [(ngModel)]="nameU" formControlName="name" ngModel/><br/>
-        <label>Product Size</label>
+        <label>Product Size</label><br/>
         <input type="text" [(ngModel)]="sizeU" formControlName="size" ngModel/><br/>
-        <label>Product Price</label>
+        <label>Product Price</label><br/>
         <input type="text" [(ngModel)]="priceU" formControlName="price" ngModel/><br/>
         <input type="button" value="Cancel" (click)="cancel()"/>
         <input type="submit" value="Store Product"/>

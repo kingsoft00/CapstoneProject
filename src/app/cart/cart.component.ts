@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../model.item';
-import { Product } from '../model.product';
 
 import { ProductService } from '../product.service';
 
@@ -11,11 +10,8 @@ import { ProductService } from '../product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
-  items: Item[];
-  total: number = 0;
   
-  constructor(public productService:ProductService, public activatedRoute:ActivatedRoute) { }
+  constructor(public productService:ProductService, public activatedRoute:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -24,23 +20,21 @@ export class CartComponent implements OnInit {
 				var item: Item = {
 					product: this.productService.find(id),
 					quantity : 1
-				};
+        };
 				if (localStorage.getItem('cart') == null) {
 					let cart: any = [];
-					cart.push(JSON.stringify(item)); //convert JSON to string
+          cart.push(JSON.stringify(item)); //convert JSON to string
           localStorage.setItem('cart', JSON.stringify(cart));
 				} else {
 					let cart: any = JSON.parse(localStorage.getItem('cart')); //convert string to JSON
           let index: number = -1;
 					for (var i = 0; i < cart.length; i++) {
             let item = JSON.parse(cart[i]);
-            console.log(item)
 						if (item.product._id == id) {
 							index = i;
 							break;
 						}
           }
-          console.log(22222)
 					if (index == -1) {
 						cart.push(JSON.stringify(item));
 						localStorage.setItem('cart', JSON.stringify(cart));
@@ -50,7 +44,7 @@ export class CartComponent implements OnInit {
 						cart[index] = JSON.stringify(item);
 						localStorage.setItem("cart", JSON.stringify(cart));
 					}
-				}
+        }
 				this.loadCart();
 			} else {
 				this.loadCart();
@@ -59,16 +53,17 @@ export class CartComponent implements OnInit {
 	}
 
 loadCart(): void {
-  this.total = 0;
-  this.items = [];
+  this.productService.total = 0.00;
+  this.productService.items = [];
   let cart = JSON.parse(localStorage.getItem('cart'));
   for (var i = 0; i < cart.length; i++) {
     let item = JSON.parse(cart[i]);
-    this.items.push({
+    this.productService.items.push({
       product: item.product,
       quantity: item.quantity
     });
-    this.total += item.product.price * item.quantity;
+    this.productService.total += item.product.price * item.quantity;
+    Math.round((this.productService.total + Number.EPSILON) * 100) / 100;
   }
 }
 

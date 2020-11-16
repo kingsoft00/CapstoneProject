@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Item } from './model.item';
 import { Brand, Product, User } from './model.product';
 
 @Injectable({
@@ -16,7 +17,9 @@ export class ProductService {
   trackingUsername:string;
   trackingEmail:string;
 
-  private products:Product[];
+  items: Item[];
+  total: number = 0.00;
+  private products:Product[]=[];
   
   constructor(public httpClient:HttpClient) { 
     this.getAllProductDetails().subscribe(data=>this.products=data);
@@ -27,7 +30,7 @@ export class ProductService {
     return this.products[this.getSelectedIndex(num)];
   }
   
-  getSelectedIndex(id) {
+  private getSelectedIndex(id) {
     for (let i = 0; i < this.products.length; i++) {
         if (this.products[i]._id == id) {
             return i;

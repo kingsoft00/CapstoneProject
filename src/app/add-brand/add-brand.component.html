@@ -1,7 +1,7 @@
 <div>
     <form [formGroup]="brandRef" (ngSubmit)="storeBrand()">
-        <label>Product Name</label>
-        <input type="text" formControlName="brand"/><br/>
+        <label>Brand Name</label>
+        <input type="text" formControlName="brand" placeholder="Enter New Brand"/><br/>
         <input type="submit" value="Store Brand"/>
     </form>
     {{result}}
