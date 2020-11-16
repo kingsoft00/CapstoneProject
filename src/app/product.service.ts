@@ -22,12 +22,12 @@ export class ProductService {
     this.getAllProductDetails().subscribe(data=>this.products=data);
   }
 
-  find(id): Product { 
+  find(id:string): Product { 
     var num = parseInt(id);
     return this.products[this.getSelectedIndex(num)];
   }
   
-  private getSelectedIndex(id) {
+  getSelectedIndex(id) {
     for (let i = 0; i < this.products.length; i++) {
         if (this.products[i]._id == id) {
             return i;

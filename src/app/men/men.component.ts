@@ -25,7 +25,7 @@ export class MenComponent implements OnInit {
   chooseAll():void{
     this.ngOnInit();
   }
-  gotoCart(id:number):void{
-    this.router.navigate(['cart', {cartId:id }]);
+  gotoCart(id):void{
+    this.router.navigate(['/cart', {cartId:id}]);
   }
 }

@@ -23,7 +23,7 @@ export class WomenComponent implements OnInit {
   chooseAll():void{
     this.ngOnInit();
   }
-  gotoCart():void{
-    this.router.navigate(['cart']);
+  gotoCart(id):void{
+    this.router.navigate(['/cart', {cartId:id}]);
   }
 }

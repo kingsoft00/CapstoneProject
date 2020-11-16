@@ -24,8 +24,7 @@
               <td>{{pp.size}}</td>
               <td><img src={{pp.image}} alt="Image" width="100"></td>
               <td>${{pp.price}}</td>
-              <td><input type="button" class="btn-danger" value="Buy" (click)="addToCart(pp._id)"><br/>
+              <td><input type="button" class="btn-danger" value="Buy Now" (click)="gotoCart(pp._id)"><br/></td>
           </tr>
   </table>
-  <input type="button" class="btn-primary" value="Your Cart" (click)="gotoCart()">
 </div>

@@ -28,18 +28,19 @@ export class CartComponent implements OnInit {
 				if (localStorage.getItem('cart') == null) {
 					let cart: any = [];
 					cart.push(JSON.stringify(item)); //convert JSON to string
-					localStorage.setItem('cart', JSON.stringify(cart));
+          localStorage.setItem('cart', JSON.stringify(cart));
 				} else {
 					let cart: any = JSON.parse(localStorage.getItem('cart')); //convert string to JSON
-					let index: number = -1;
+          let index: number = -1;
 					for (var i = 0; i < cart.length; i++) {
-						let item = JSON.parse(cart[i]);
-
+            let item = JSON.parse(cart[i]);
+            console.log(item)
 						if (item.product._id == id) {
 							index = i;
 							break;
 						}
-					}
+          }
+          console.log(22222)
 					if (index == -1) {
 						cart.push(JSON.stringify(item));
 						localStorage.setItem('cart', JSON.stringify(cart));
@@ -83,11 +84,11 @@ remove(id): void {
   localStorage.setItem("cart", JSON.stringify(cart));
   this.loadCart();
 }
-cartInfo:any;
+// cartInfo:any;
 checkOut() {
-  let cart: any = JSON.parse(localStorage.getItem('cart'));
-  this.cartInfo= cart;
-  console.log(cart);
+  // let cart: any = JSON.parse(localStorage.getItem('cart'));
+  // this.cartInfo= cart;
+  // console.log(cart);
 }
 
 }
