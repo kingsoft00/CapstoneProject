@@ -19,6 +19,8 @@ export class ProductService {
 
   items: Item[];
   total: number = 0.00;
+  totalString:string;
+
   private products:Product[]=[];
   
   constructor(public httpClient:HttpClient) { 

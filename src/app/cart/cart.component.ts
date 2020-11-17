@@ -63,7 +63,7 @@ loadCart(): void {
       quantity: item.quantity
     });
     this.productService.total += item.product.price * item.quantity;
-    Math.round((this.productService.total + Number.EPSILON) * 100) / 100;
+    //this.productService.totalString = (this.productService.total).toFixed(2);
   }
 }
 
@@ -92,7 +92,7 @@ checkOut() {
       quantity: item.quantity
     });
     this.productService.total += item.product.price * item.quantity;
-    Math.round((this.productService.total + Number.EPSILON) * 100) / 100;
+    //this.productService.totalString = (this.productService.total).toFixed(2);
     this.router.navigate(['checkout']);
   }
 }
