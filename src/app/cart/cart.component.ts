@@ -63,7 +63,6 @@ loadCart(): void {
       quantity: item.quantity
     });
     this.productService.total += item.product.price * item.quantity;
-    //this.productService.totalString = (this.productService.total).toFixed(2);
   }
 }
 
@@ -83,7 +82,6 @@ remove(id): void {
 checkOut() {
   this.productService.total = 0;
   this.productService.items = [];
-  this.productService.totalString = "";
   let cart: any = JSON.parse(localStorage.getItem('cart'));
   for (var i = 0; i < cart.length; i++) {
     let item: Item = JSON.parse(cart[i]);
@@ -92,7 +90,6 @@ checkOut() {
       quantity: item.quantity
     });
     this.productService.total += item.product.price * item.quantity;
-    //this.productService.totalString = (this.productService.total).toFixed(2);
     this.router.navigate(['checkout']);
   }
 }
