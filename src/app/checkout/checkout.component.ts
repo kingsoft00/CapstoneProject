@@ -36,7 +36,7 @@ export class CheckoutComponent implements OnInit {
     Shipping Address: ${this.checkoutRef.value.street}, Suit|Apt#: ${this.checkoutRef.value.suit_apt}, 
     City: ${this.checkoutRef.value.city}, State: ${this.checkoutRef.value.state}, Zip Code: ${this.checkoutRef.value.zipcode}\n
     Are they correct?`)){
-      if(confirm(`and Your Order Total is $${this.productService.total}. Is that right???`)){
+      if(confirm(`and Your Order Total is $${this.productService.total.toFixed(2)}. Is that right???`)){
         localStorage.removeItem('cart');
         let cart: any = [];
         localStorage.setItem('cart', JSON.stringify(cart));

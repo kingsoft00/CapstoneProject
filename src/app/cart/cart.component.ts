@@ -78,10 +78,12 @@ remove(id): void {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
   this.loadCart();
+
 }
 checkOut() {
   this.productService.total = 0;
   this.productService.items = [];
+  this.productService.totalString = "";
   let cart: any = JSON.parse(localStorage.getItem('cart'));
   for (var i = 0; i < cart.length; i++) {
     let item: Item = JSON.parse(cart[i]);
