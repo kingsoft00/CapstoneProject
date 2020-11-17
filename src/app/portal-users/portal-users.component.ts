@@ -19,9 +19,14 @@ export class PortalUsersComponent implements OnInit {
   gotoAddUser():void{
     this.router.navigate(['addUser']);
   }
-  deleteUser(email):void {
-    this.productService.deleteUserByEmail(email).subscribe(data=>this.users=data.msg);
-    this.router.navigate(['portalHome']);
+  deleteUser(email,id):void {
+    if (id =="5fb317297ed16d0db055b812") {
+      alert("Should not delete Admin account")
+      this.router.navigate(['portalHome']);
+    } else {
+      this.productService.deleteUserByEmail(email).subscribe(data=>this.users=data.msg);
+      this.router.navigate(['portalHome']);
+    }
   }
   gotoUpdateUser(id:any,username:string,email:string):void{
     this.productService.trackingUserId = id;

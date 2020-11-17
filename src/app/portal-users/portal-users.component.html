@@ -14,7 +14,7 @@
                 <td>{{u.username}}</td>
                 <td>{{u.email}}</td>
                 <td>{{u.password}}</td>
-                <td><input type="button" value="Delete" (click)="deleteUser(u.email)"><br/>
+                <td><input type="button" value="Delete" (click)="deleteUser(u.email, u._id)"><br/>
                     <input type="button" value="Update" (click)="gotoUpdateUser(u._id,u.username,u.email)"/></td>
             </tr>
     </table>

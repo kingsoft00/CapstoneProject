@@ -63,7 +63,7 @@ export class AuthService {
     return this.decodedToken.username;
   }
   public isAdmin():boolean{
-    if(this.decodedToken.userId == "5fb288bddb69826598a625d2") {
+    if(this.decodedToken.userId == "5fb317297ed16d0db055b812") {
       return true;
     }
     else {
